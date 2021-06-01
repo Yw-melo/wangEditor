@@ -1,12 +1,9 @@
 wangEditor extension for laravel-admin
-======
 
 这是一个`laravel-admin`扩展，用来将`wangEditor`集成进`laravel-admin`的表单中
 
 laravel-admin | extension
 ---- | ---
-1.x | 1.x
-2.x |2.x
 
 ## 截图
 
@@ -35,13 +32,13 @@ php artisan vendor:publish --tag=laravel-admin-wangEditor
     'extensions' => [
 
         'wang-editor' => [
-        
+
             // 如果要关掉这个扩展，设置为false
             'enable' => true,
-            
+
             // 编辑器的配置
             'config' => [
-                
+
             ]
         ]
     ]

@@ -1,22 +1,22 @@
-<div class="{{$viewClass['form-group']}} {!! !$errors->has($errorKey) ? '' : 'has-error' !!}">
-
+<div {!! admin_attrs($group_attrs) !!}>
     <label for="{{$id}}" class="{{$viewClass['label']}} control-label">{{$label}}</label>
-
     <div class="{{$viewClass['field']}}">
-
-        @include('admin::form.error')
-
-        <div id="{{$id}}" style="width: 100%; height: 100%;">
-            @if(!empty(old($column, $value)))
-            {!! old($column, $value) !!}
-            @else
-                <p></p>
-            @endif
+        <div class="{{$class}}">
+            <p>{!! $value !!}</p>
         </div>
-
-        <input id="input-{{$id}}" type="hidden" name="{{$name}}" value="{{ old($column, $value) }}" />
-
+        <textarea name="{{$name}}" class="d-none" placeholder="{{ $placeholder }}" {!! $attributes !!} >{!! $value !!}</textarea>
+        @include('admin::form.error')
         @include('admin::form.help-block')
-
     </div>
 </div>
+
+<script require="wangEditor" @script>
+    var $editor = new wangEditor(this);
+    var $textarea = $(this).parent().find('textarea');
+    $editor.config.onchange = function (html) {
+        $textarea.val(html);
+    }
+    $editor.config = Object.assign($editor.config, @json($config));
+    $editor.create();
+</script>
+
