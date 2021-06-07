@@ -22,7 +22,7 @@ class WangEditorServiceProvider extends ServiceProvider
         }
 
         Assets::define('wangEditor', [
-            'js'     => 'https://cdn.jsdelivr.net/npm/wangeditor@4.7.0/dist/wangEditor.min.js',
+            'js'     => 'https://cdn.jsdelivr.net/npm/wangeditor@4.6.4/dist/wangEditor.min.js',
             'export' => 'wangEditor',
         ]);
 
